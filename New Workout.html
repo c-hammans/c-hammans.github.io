@@ -7,8 +7,9 @@
 
     <body>
         <h1>Create New Workout</h1>
-        <h3>Workout Name:  <input type="text"></h3>
-        <table>
+        <form action="-workouts-.php" method="POST">
+          <h3>Workout Name:  <input type="text" name="name"></h3>        
+          <table>
             <tr>
               <th>Exercise</th>
               <th>No. of Sets</th>
@@ -19,6 +20,11 @@
         </table>
         <button type="button" onclick="addRow()">+ Add Exercise</button>
         <script>
+          var exercise;
+          var sets;
+          var reps;
+          var notes;
+          var group;
           function addRow(){
             // add a row to the table
             var table = document.getElementsByTagName('table')[0];
@@ -28,18 +34,17 @@
             var col3 = newRow.insertCell(2);
             var col4 = newRow.insertCell(3);
             var col5 = newRow.insertCell(4);
-            col1.innerHTML = "<input type='text' name='col1'>";
-            col2.innerHTML = "<input type='text' name='col2'>";
-            col3.innerHTML = "<input type='text' name='col3'>";
-            col4.innerHTML = "<input type='text' name='col4'>";
-            col5.innerHTML = "<select><option>-</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option></select>";
+            col1.innerHTML = "<input type='text' name='exercise'>";
+            col2.innerHTML = "<input type='text' name='sets'>";
+            col3.innerHTML = "<input type='text' name='reps'>";
+            col4.innerHTML = "<input type='text' name='notes'>";
+            col5.innerHTML = "<select name='group'><option>-</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option></select>";
           }
         </script>
         <p> </p>
-        
-        <button type="button" onclick="window.open('Previous Workouts.html')">Save Workout</button>
-        
-        <button type="button" onclick="Edit()">Edit Previous Workout</button>
-
+        <button type="submit">Save Workout</button>
+        </form>
+        <button type="button" onClick="window.open('Previous Workouts.html')">Go To Workouts</button>
+      
     
 </html>
